@@ -700,13 +700,13 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
   fetch('https://api.github.com/users/' + user + '/repos?per_page=100&sort=pushed')
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (repos) {
-      repos = repos.filter(function (r) { return !r.fork && !r.archived; }).slice(0, 12);
+      repos = repos.filter(function (r) { return !r.fork && !r.archived && r.description && r.name !== user && r.name !== user + '.github.io'; }).sort(function (a, b) { return b.stargazers_count - a.stargazers_count; }).slice(0, 8);
       repos.forEach(function (r) {
         var li = document.createElement('li');
         var a = el('a', r.name); a.href = r.html_url;
         var h = el('h3'); h.appendChild(a);
         var body = document.createElement('div');
-        body.appendChild(el('p', r.description || 'No description yet.'));
+        body.appendChild(el('p', r.description.length > 140 ? r.description.slice(0, 137).replace(/\s+\S*$/, '') + '...' : r.description));
         var meta = [r.language, r.stargazers_count ? r.stargazers_count + ' stars' : ''].filter(Boolean).join(', ');
         if (meta) body.appendChild(el('p', meta, 'meta'));
         li.appendChild(h); li.appendChild(body);

@@ -212,6 +212,37 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
 
 .site-footer { padding-block: 1rem 3rem; color: var(--muted); font-size: .95rem; }
 
+/* Skills */
+.skillgroups { margin: 0; display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0 2rem; }
+.skillgroups dt { font: 700 1.05rem/1.3 "Bricolage Grotesque", sans-serif; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.skillgroups dd { margin: 0; padding: .95rem 0 1rem; border-top: 1px solid var(--rule); }
+
+/* GitHub */
+.heat { margin: 0 0 .5rem; }
+.heat__grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 3px; overflow-x: auto; padding-bottom: .5rem; }
+.heat__grid b { width: 10px; height: 10px; display: block; }
+.heat__grid i { width: 10px; height: 10px; background: var(--rule); display: block; }
+.heat__grid i[data-l="1"] { background: color-mix(in srgb, var(--lane) 35%, var(--rule)); }
+.heat__grid i[data-l="2"] { background: color-mix(in srgb, var(--lane) 60%, var(--rule)); }
+.heat__grid i[data-l="3"] { background: color-mix(in srgb, var(--lane) 85%, var(--rule)); }
+.heat__grid i[data-l="4"] { background: var(--lane); }
+.heat__total { margin: 0 0 2rem; color: var(--muted); }
+.repos { margin: 0; padding: 0; list-style: none; }
+.repos li { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: .15rem 2rem; padding-block: .9rem; border-top: 1px solid var(--rule); }
+.repos .meta { color: var(--muted); font-size: .95rem; }
+
+.linkbtn { font: inherit; font-weight: 700; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-thickness: .08em; text-underline-offset: .2em; }
+
+@media print {
+  .site-header, .display, .skip, .hero__links, .heat, .heat__total, .portrait { display: none !important; }
+  body, :root { background: #fff !important; color: #000 !important; --fg: #000; --muted: #333; --rule: #999; --accent: #000; }
+  .section { padding-bottom: 1.25rem; break-inside: avoid-page; }
+  .section::before { display: none; }
+  .section h2 { position: static; }
+  .hero { padding-block: 1rem; }
+  a { color: #000; }
+}
+
 /* Narrow screens */
 @media (max-width: 52rem) {
   .site-header__right { display: contents; }
@@ -221,7 +252,9 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
   .portrait { width: 7.5rem; }
   .section__inner { grid-template-columns: 1fr; gap: 1rem; }
   .section h2 { position: static; }
-  .focus, .timeline li, .rows article { grid-template-columns: 1fr; }
+  .focus, .timeline li, .rows article, .skillgroups, .repos li { grid-template-columns: 1fr; }
+  .skillgroups dt { border-bottom: 0; padding-bottom: 0; }
+  .skillgroups dd { border-top: 0; padding-top: .25rem; }
   .focus dt { border-bottom: 0; padding-bottom: 0; }
   .focus dd { border-top: 0; padding-top: .25rem; }
 }
@@ -238,6 +271,7 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
         <li><a href="#focus">Focus</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -282,6 +316,7 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
         <li><a href="https://github.com/huzaifa18">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn</a></li>
         <li><a href="https://stackoverflow.com/users/6874315/huzaifa-asif">Stack Overflow</a></li>
+        <li><button class="linkbtn" type="button" id="print-cv">Save as PDF</button></li>
       </ul>
     </div>
     <img class="portrait" src="https://avatars.githubusercontent.com/u/29542625?v=4&amp;s=480" width="232" height="290" alt="Portrait of Huzaifa Asif">
@@ -482,6 +517,44 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
     </div>
   </section>
 
+  <section class="wrap section" id="skills" aria-labelledby="skills-h">
+    <div class="section__inner">
+      <h2 id="skills-h">Skills</h2>
+      <div class="section__body">
+        <dl class="skillgroups">
+          <dt>Languages</dt>
+          <dd>Kotlin, Java, Dart, Python, C++, SQL (MySQL, SQLite), HTML, CSS, XML, JSON</dd>
+          <dt>Mobile</dt>
+          <dd>Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform, Android TV, Material Design, iOS release</dd>
+          <dt>Architecture</dt>
+          <dd>MVVM, MVP, MVC, BLoC, GetX, dependency injection with Dagger, RxJava, Kotlin Coroutines</dd>
+          <dt>Networking and data</dt>
+          <dd>Retrofit, REST, GraphQL, WebSockets, Realm, Firebase, Crashlytics, Agora, payment gateways including PayPal</dd>
+          <dt>AI and machine learning</dt>
+          <dd>TensorFlow Lite, TensorFlow, PyTorch, face recognition, computer vision, ARCore</dd>
+          <dt>Tools and process</dt>
+          <dd>Git and GitHub, Jira, Maven, Agile and Scrum, release management, Google Play and App Store deployment, testing</dd>
+          <dt>Also</dt>
+          <dd>Arduino, WordPress</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="github" aria-labelledby="github-h">
+    <div class="section__inner">
+      <h2 id="github-h">On GitHub</h2>
+      <div class="section__body">
+        <div class="heat" id="heat" hidden>
+          <div class="heat__grid" id="heat-grid" role="img" aria-label="Contributions on GitHub over the last year"></div>
+        </div>
+        <p class="heat__total" id="heat-total" hidden></p>
+        <ul class="repos" id="repos"></ul>
+        <p class="section__note">Most of my professional work is private, so this list is only the public part. The full list is on <a href="https://github.com/huzaifa18?tab=repositories">GitHub</a>.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap section" id="background" aria-labelledby="background-h">
     <div class="section__inner">
       <h2 id="background-h">Education</h2>
@@ -491,6 +564,8 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
           <li><strong>BSCS, Computer Science</strong>Imperial College of Business Studies, 2015 to 2019</li>
           <li><strong>Winner, Obstacle Sensing Robot competition</strong>Arduino robot built with a team of three, SMEP GIKI chapter, 2018</li>
           <li><strong>Blood bank coordinator</strong>Imperial Blood Bank, 2017 to 2019</li>
+          <li><strong>Certifications</strong>AWSome Day Conference (AWS), January 2018. LinkedIn skill assessments passed in Java, Kotlin and JSON.</li>
+          <li><strong>Languages</strong>English (full professional), Urdu (native), German (learning)</li>
         </ul>
       </div>
     </div>
@@ -508,7 +583,15 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
           <p>It's rare that you come across standout talent like Huzaifa.</p>
           <footer>Yasir Ihsan, Technical Lead, Code Builderz</footer>
         </blockquote>
-        <p class="section__note">From the recommendations on my <a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn profile</a>.</p>
+        <blockquote>
+          <p>Highly creative, with amazing mobile application development skills.</p>
+          <footer>Amir Hussain, who managed me</footer>
+        </blockquote>
+        <blockquote>
+          <p>Quickly learned our code base and took part actively in daily scrums.</p>
+          <footer>Jeff Parry, QA Engineer Manager, Arccos Golf</footer>
+        </blockquote>
+        <p class="section__note">From the 20 recommendations on my <a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn profile</a>.</p>
       </div>
     </div>
   </section>
@@ -597,6 +680,66 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
   document.addEventListener('click', function (e) {
     if (!panel.hidden && !panel.contains(e.target) && e.target !== toggle) setOpen(false);
   });
+})();
+</script>
+<script>
+(function () {
+  var cv = document.getElementById('print-cv');
+  if (cv) cv.addEventListener('click', function () { window.print(); });
+
+  var user = 'huzaifa18';
+  var list = document.getElementById('repos');
+
+  function el(tag, text, cls) {
+    var n = document.createElement(tag);
+    if (text) n.textContent = text;
+    if (cls) n.className = cls;
+    return n;
+  }
+
+  fetch('https://api.github.com/users/' + user + '/repos?per_page=100&sort=pushed')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (repos) {
+      repos = repos.filter(function (r) { return !r.fork && !r.archived; }).slice(0, 12);
+      repos.forEach(function (r) {
+        var li = document.createElement('li');
+        var a = el('a', r.name); a.href = r.html_url;
+        var h = el('h3'); h.appendChild(a);
+        var body = document.createElement('div');
+        body.appendChild(el('p', r.description || 'No description yet.'));
+        var meta = [r.language, r.stargazers_count ? r.stargazers_count + ' stars' : ''].filter(Boolean).join(', ');
+        if (meta) body.appendChild(el('p', meta, 'meta'));
+        li.appendChild(h); li.appendChild(body);
+        list.appendChild(li);
+      });
+    })
+    .catch(function () {
+      var li = document.createElement('li');
+      var a = el('a', 'See my public repositories on GitHub'); a.href = 'https://github.com/' + user + '?tab=repositories';
+      li.appendChild(a); list.appendChild(li);
+    });
+
+  fetch('https://github-contributions-api.jogruber.de/v4/' + user + '?y=last')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (d) {
+      var days = d.contributions || [];
+      if (!days.length) return;
+      var grid = document.getElementById('heat-grid');
+      var pad = new Date(days[0].date + 'T00:00:00').getDay();
+      for (var i = 0; i < pad; i++) grid.appendChild(document.createElement('b'));
+      days.forEach(function (c) {
+        var i = document.createElement('i');
+        i.dataset.l = c.level;
+        i.title = c.count + ' on ' + c.date;
+        grid.appendChild(i);
+      });
+      var total = days.reduce(function (n, c) { return n + c.count; }, 0);
+      var t = document.getElementById('heat-total');
+      t.textContent = total + ' contributions on GitHub in the last year.';
+      document.getElementById('heat').hidden = false;
+      t.hidden = false;
+    })
+    .catch(function () {});
 })();
 </script>
 </body>

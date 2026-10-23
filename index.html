@@ -346,6 +346,34 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
 .display__panel { border-radius: 1.1rem; border-width: 1px; border-color: var(--glass-line); }
 .seg span { border-radius: 999px; border-width: 1px; }
 @media print { .aurora, .progress { display: none !important; } }
+/* Phones */
+body { overflow-x: clip; }
+@media (max-width: 52rem) {
+  html { font-size: calc(100% * var(--text-scale)); }
+  .site-header { padding-block: 1rem; gap: .75rem 1rem; }
+  .wordmark { font-size: 1.15rem; }
+  .nav ul { gap: .3rem 1.1rem; }
+  .nav a { font-size: .95rem; }
+  .display__toggle { padding: .35rem 1rem; font-size: .9rem; }
+  .display__panel { position: fixed; left: 1rem; right: 1rem; top: 4.25rem; width: auto; max-height: calc(100vh - 6rem); overflow-y: auto; }
+  .hero { padding-block: 1.25rem 2.5rem; gap: 1rem; }
+  .portrait { order: -1; width: 5.5rem; margin: 0 .4rem .4rem 0; box-shadow: .4rem .4rem 0 var(--lane); }
+  .hero h1 { font-size: clamp(2.5rem, 13vw, 4.2rem); margin-bottom: 1rem; }
+  .hero__lead { font-size: 1.1rem; }
+  .hero__links { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: 1.4rem; }
+  .hero__links li { display: block; }
+  .hero__links .btn { width: 100%; padding: .7rem .5rem; font-size: .9rem; }
+  .section__inner { gap: .75rem; }
+  .section h2 { font-size: 1.5rem; }
+  .stats strong { font-size: 2.2rem; }
+  .rail li { flex-basis: 9.5rem; }
+  .case summary { font-size: 1.1rem; }
+  .contact a { font-size: 1.6rem; }
+  .aurora span { filter: blur(40px); }
+  .aurora span:nth-child(1) { width: 22rem; height: 22rem; }
+  .aurora span:nth-child(2) { width: 20rem; height: 20rem; }
+  .aurora span:nth-child(3) { width: 18rem; height: 18rem; }
+}
 </style>
 </head>
 <body>
@@ -910,6 +938,7 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
       t.textContent = total + ' contributions on GitHub in the last year.';
       document.getElementById('heat').hidden = false;
       t.hidden = false;
+      grid.scrollLeft = grid.scrollWidth;
     })
     .catch(function () {});
 })();

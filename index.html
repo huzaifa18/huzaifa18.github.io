@@ -166,8 +166,8 @@ a:hover { text-decoration-thickness: .17em; }
 /* Sections */
 .section { padding-bottom: clamp(3rem, 7vw, 5rem); }
 .section::before {
-  content: ""; display: block; height: 5px; margin-bottom: clamp(2rem, 5vw, 3.25rem);
-  background: repeating-linear-gradient(90deg, var(--lane) 0 2.25rem, transparent 2.25rem 3.75rem);
+  content: ""; display: block; height: 1px; margin-bottom: clamp(2rem, 5vw, 3.25rem);
+  background: linear-gradient(90deg, var(--rule), transparent);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hero + .section::before { animation: lane-draw 1.2s ease-out .2s both; }
@@ -204,7 +204,7 @@ a:hover { text-decoration-thickness: .17em; }
 .facts li { padding-block: 1rem; border-top: 1px solid var(--rule); }
 .facts strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.15rem; }
 
-blockquote { margin: 0 0 2rem; padding-left: 1.25rem; border-left: 5px solid var(--lane); max-width: 40rem; font-size: 1.2rem; line-height: 1.5; }
+blockquote { margin: 0 0 2rem; padding-left: 1.25rem; border-left: 3px solid var(--accent); max-width: 40rem; font-size: 1.2rem; line-height: 1.5; }
 blockquote p { margin-bottom: .5rem; }
 blockquote footer { font-size: 1rem; color: var(--muted); }
 
@@ -261,10 +261,10 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
 .heat__grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 3px; overflow-x: auto; padding-bottom: .5rem; }
 .heat__grid b { width: 10px; height: 10px; display: block; }
 .heat__grid i { width: 10px; height: 10px; background: var(--rule); display: block; }
-.heat__grid i[data-l="1"] { background: color-mix(in srgb, var(--lane) 35%, var(--rule)); }
-.heat__grid i[data-l="2"] { background: color-mix(in srgb, var(--lane) 60%, var(--rule)); }
-.heat__grid i[data-l="3"] { background: color-mix(in srgb, var(--lane) 85%, var(--rule)); }
-.heat__grid i[data-l="4"] { background: var(--lane); }
+.heat__grid i[data-l="1"] { background: color-mix(in srgb, var(--accent) 35%, var(--rule)); }
+.heat__grid i[data-l="2"] { background: color-mix(in srgb, var(--accent) 60%, var(--rule)); }
+.heat__grid i[data-l="3"] { background: color-mix(in srgb, var(--accent) 85%, var(--rule)); }
+.heat__grid i[data-l="4"] { background: var(--accent); }
 .heat__total { margin: 0 0 2rem; color: var(--muted); }
 .repos { margin: 0; padding: 0; list-style: none; }
 .repos li { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: .15rem 2rem; padding-block: .9rem; border-top: 1px solid var(--rule); }
@@ -374,6 +374,37 @@ body { overflow-x: clip; }
   .aurora span:nth-child(2) { width: 20rem; height: 20rem; }
   .aurora span:nth-child(3) { width: 18rem; height: 18rem; }
 }
+/* Project cards */
+#projects .section__body { max-width: none; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0 0 .5rem; padding: 0; list-style: none; }
+.card { --tone: #6C7DFF; position: relative; display: flex; flex-direction: column; gap: .6rem; padding: 1.35rem 1.5rem 1.4rem; border: 1px solid var(--glass-line); border-radius: 1.1rem; background: color-mix(in srgb, var(--panel) 72%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: transform .2s ease, border-color .2s ease; }
+.card.t2 { --tone: #3FC8A0; }
+.card.t3 { --tone: #F08A5D; }
+.card.t4 { --tone: #E9A93B; }
+:root:not([data-theme="dark"]) .card { --tone: #4B5BD8; }
+:root:not([data-theme="dark"]) .card.t2 { --tone: #138A68; }
+:root:not([data-theme="dark"]) .card.t3 { --tone: #C25A28; }
+:root:not([data-theme="dark"]) .card.t4 { --tone: #A8730C; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .card { --tone: #8C9BFF; }
+  :root:not([data-theme="light"]) .card.t2 { --tone: #4FD6AE; }
+  :root:not([data-theme="light"]) .card.t3 { --tone: #F59A70; }
+  :root:not([data-theme="light"]) .card.t4 { --tone: #F0B84F; }
+}
+.card__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: .35rem; color: var(--tone); }
+.card__icon, .card__arrow { width: 1.7rem; height: 1.7rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.card__arrow { width: 1.2rem; height: 1.2rem; color: var(--muted); }
+.card h4 { margin: 0; font: 700 1.3rem/1.2 "Bricolage Grotesque", sans-serif; }
+.card h4 a { color: var(--fg); text-decoration: none; }
+.card h4 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.card:has(h4 a):hover { transform: translateY(-3px); border-color: var(--tone); }
+.card:has(h4 a:focus-visible) { border-color: var(--tone); }
+.card h4 a:focus-visible { outline-offset: 6px; }
+.card p { margin: 0; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: auto 0 0; padding: .6rem 0 0; list-style: none; }
+.tags li { padding: .15rem .7rem; border-radius: .5rem; font-size: .85rem; line-height: 1.5; color: var(--tone); background: color-mix(in srgb, var(--tone) 15%, transparent); }
+@media (max-width: 40rem) { .cards { grid-template-columns: minmax(0, 1fr); } }
+:root[data-motion="reduce"] .card:has(h4 a):hover { transform: none; }
 </style>
 </head>
 <body>
@@ -550,103 +581,94 @@ body { overflow-x: clip; }
   <section class="wrap section" id="projects" aria-labelledby="projects-h">
     <div class="section__inner">
       <h2 id="projects-h">Projects</h2>
-      <div class="section__body rows">
+      <div class="section__body">
         <h3 class="group-title">Shipped products (client work, code is private)</h3>
-        <article>
-          <h3>QaboolHai</h3>
-          <div>
+        <ul class="cards">
+          <li class="card t1">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>QaboolHai</h4>
             <p>A matchmaking app on Google Play and the App Store with matching, messaging, video calls and profile photo verification.</p>
-            <p class="tech">Flutter, Firebase, Agora</p>
-          </div>
-        </article>
-        <article>
-          <h3>Arccos Golf</h3>
-          <div>
+            <ul class="tags"><li>Flutter</li><li>Firebase</li><li>Agora</li></ul>
+          </li>
+          <li class="card t2">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>Arccos Golf</h4>
             <p>A golf analytics Android app. Migrated to Kotlin, adopted Jetpack Compose and re-architected to MVVM.</p>
-            <p class="tech">Kotlin, Jetpack Compose, Coroutines, Retrofit</p>
-          </div>
-        </article>
-        <article>
-          <h3>Parousia</h3>
-          <div>
+            <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Coroutines</li><li>Retrofit</li></ul>
+          </li>
+          <li class="card t3">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="11" r="3"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>Parousia</h4>
             <p>Contactless attendance with on-device face recognition, QR codes and Wi-Fi check-in.</p>
-            <p class="tech">Kotlin, TensorFlow Lite</p>
-          </div>
-        </article>
-        <article>
-          <h3>BTV</h3>
-          <div>
+            <ul class="tags"><li>Kotlin</li><li>TensorFlow Lite</li></ul>
+          </li>
+          <li class="card t4">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M9 21h6"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>BTV</h4>
             <p>An Android TV app with live channels, catch-up and gesture control of the player.</p>
-            <p class="tech">Android TV, Kotlin</p>
-          </div>
-        </article>
-        <article>
-          <h3>MediCall and BDoc</h3>
-          <div>
+            <ul class="tags"><li>Android TV</li><li>Kotlin</li></ul>
+          </li>
+          <li class="card t1">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>MediCall and BDoc</h4>
             <p>Healthcare apps for looking up drugs and booking doctor appointments.</p>
-            <p class="tech">Java, Kotlin, Firebase</p>
-          </div>
-        </article>
-
+            <ul class="tags"><li>Java</li><li>Kotlin</li><li>Firebase</li></ul>
+          </li>
+        </ul>
         <h3 class="group-title">Open source</h3>
-        <article>
-          <h3><a href="https://github.com/huzaifa18/Music_Player">Music_Player</a></h3>
-          <div>
+        <ul class="cards">
+          <li class="card t1">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></div>
+            <h4><a href="https://github.com/huzaifa18/Music_Player">Music_Player</a></h4>
             <p>A fast, good-looking music player for mp3, midi, wav and raw files.</p>
-            <p class="tech">Kotlin</p>
-          </div>
-        </article>
-        <article>
-          <h3><a href="https://github.com/huzaifa18/SpeedTest">SpeedTest</a></h3>
-          <div>
+            <ul class="tags"><li>Kotlin</li></ul>
+          </li>
+          <li class="card t2">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></div>
+            <h4><a href="https://github.com/huzaifa18/SpeedTest">SpeedTest</a></h4>
             <p>An internet speed test that uses Google Fiber's measurement.</p>
-            <p class="tech">Kotlin</p>
-          </div>
-        </article>
-        <article>
-          <h3><a href="https://github.com/huzaifa18/woo_flutter">woo_flutter</a></h3>
-          <div>
+            <ul class="tags"><li>Kotlin</li></ul>
+          </li>
+          <li class="card t3">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 11h11l2-8H6"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></div>
+            <h4><a href="https://github.com/huzaifa18/woo_flutter">woo_flutter</a></h4>
             <p>A WooCommerce storefront app.</p>
-            <p class="tech">Flutter, Dart</p>
-          </div>
-        </article>
-        <article>
-          <h3><a href="https://github.com/huzaifa18/ParousiaRFID">ParousiaRFID</a></h3>
-          <div>
+            <ul class="tags"><li>Flutter</li><li>Dart</li></ul>
+          </li>
+          <li class="card t4">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></div>
+            <h4><a href="https://github.com/huzaifa18/ParousiaRFID">ParousiaRFID</a></h4>
             <p>An RFID-based attendance system for Android.</p>
-            <p class="tech">Kotlin</p>
-          </div>
-        </article>
-        <article>
-          <h3><a href="https://github.com/huzaifa18/VeterinaryAndPatient">VeterinaryAndPatient</a></h3>
-          <div>
+            <ul class="tags"><li>Kotlin</li></ul>
+          </li>
+          <li class="card t1">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></div>
+            <h4><a href="https://github.com/huzaifa18/VeterinaryAndPatient">VeterinaryAndPatient</a></h4>
             <p>An app for managing veterinary patients.</p>
-            <p class="tech">Java</p>
-          </div>
-        </article>
-
+            <ul class="tags"><li>Java</li></ul>
+          </li>
+        </ul>
         <h3 class="group-title">University and research</h3>
-        <article>
-          <h3>SENSATION</h3>
-          <div>
+        <ul class="cards">
+          <li class="card t2">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 17-7-4-7 4z"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>SENSATION</h4>
             <p>An Android navigation system that helps visually impaired pedestrians get around. A 10 ECTS university project.</p>
-            <p class="tech">Android, Kotlin</p>
-          </div>
-        </article>
-        <article>
-          <h3>Master's thesis</h3>
-          <div>
+            <ul class="tags"><li>Android</li><li>Kotlin</li></ul>
+          </li>
+          <li class="card t3">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>Master's thesis</h4>
             <p>Assistive vision models, how to evaluate their safety, and integrating them with ARCore.</p>
-            <p class="tech">Python, ARCore</p>
-          </div>
-        </article>
-        <article>
-          <h3>Wumpus Cave agent</h3>
-          <div>
+            <ul class="tags"><li>Python</li><li>ARCore</li></ul>
+          </li>
+          <li class="card t4">
+            <div class="card__top"><svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><svg class="card__arrow" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h4>Wumpus Cave agent</h4>
             <p>An intelligent agent for the classic Wumpus world, written for the AI-1 Systems Project.</p>
-            <p class="tech">Python</p>
-          </div>
-        </article>
+            <ul class="tags"><li>Python</li></ul>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -758,14 +780,56 @@ body { overflow-x: clip; }
     <div class="section__inner">
       <h2 id="background-h">Education</h2>
       <div class="section__body">
-        <ul class="facts">
-          <li><strong>M.Sc. Artificial Intelligence</strong>FAU Erlangen-Nürnberg, October 2023 to now</li>
-          <li><strong>BSCS, Computer Science</strong>Imperial College of Business Studies, 2015 to 2019</li>
-          <li><strong>Winner, Obstacle Sensing Robot competition</strong>Arduino robot built with a team of three, SMEP GIKI chapter, 2018</li>
-          <li><strong>Blood bank coordinator</strong>Imperial Blood Bank, 2017 to 2019</li>
-          <li><strong>Certifications</strong>AWSome Day Conference (AWS), January 2018. LinkedIn skill assessments passed in Java, Kotlin and JSON.</li>
-          <li><strong>Languages</strong>English (full professional), Urdu (native), German (learning)</li>
-        </ul>
+        <ol class="timeline">
+          <li>
+            <div class="when">Oct 2023 to now</div>
+            <div>
+              <h3>M.Sc. Artificial Intelligence</h3>
+              <p class="where">FAU Erlangen-Nürnberg</p>
+              <p>Machine learning, deep learning and computer vision.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">2015 to 2019</div>
+            <div>
+              <h3>BSCS, Computer Science</h3>
+              <p class="where">Imperial College of Business Studies</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">2013 to 2015</div>
+            <div>
+              <h3>Intermediate, Pre-Engineering</h3>
+              <p class="where">Punjab Group of Colleges</p>
+            </div>
+          </li>
+        </ol>
+        <h3 class="group-title">Recognition and volunteering</h3>
+        <ol class="timeline">
+          <li>
+            <div class="when">Aug 2017 to Oct 2019</div>
+            <div>
+              <h3>Blood bank coordinator</h3>
+              <p class="where">Imperial Blood Bank</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Feb 2018</div>
+            <div>
+              <h3>Winner, Obstacle Sensing Robot competition</h3>
+              <p class="where">SMEP GIKI chapter</p>
+              <p>An Arduino robot built with a team of three that sensed and avoided obstacles.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jan 2018</div>
+            <div>
+              <h3>AWSome Day Conference</h3>
+              <p class="where">AWS</p>
+            </div>
+          </li>
+        </ol>
+        <p class="section__note">LinkedIn skill assessments passed in Java, Kotlin and JSON. Languages: English (full professional), Urdu (native), German (learning).</p>
       </div>
     </div>
   </section>

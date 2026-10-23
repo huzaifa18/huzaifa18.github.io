@@ -299,10 +299,59 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
   .focus dd { border-top: 0; padding-top: .25rem; }
 }
 @media (max-width: 52rem) { html .section__inner { grid-template-columns: minmax(0, 1fr); } .section__body { min-width: 0; } .heat { max-width: 100%; } }
+/* Aurora background, glass and pill buttons */
+:root {
+  --glass: rgba(17, 32, 45, .05);
+  --glass-line: rgba(17, 32, 45, .3);
+  --g1: #2F5FD8;
+  --g2: #5B3FE0;
+  --aurora: .22;
+  --blend: multiply;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #070B1A; --panel: #0E1630; --glass: rgba(255, 255, 255, .05); --glass-line: rgba(255, 255, 255, .22); --aurora: .45; --blend: screen; }
+}
+:root[data-theme="dark"] { --bg: #070B1A; --panel: #0E1630; --glass: rgba(255, 255, 255, .05); --glass-line: rgba(255, 255, 255, .22); --aurora: .45; --blend: screen; }
+:root[data-contrast="high"] { --glass-line: var(--fg); }
+:root[data-contrast="high"] .aurora { display: none; }
+
+.aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.aurora span { position: absolute; border-radius: 50%; filter: blur(60px); opacity: var(--aurora); mix-blend-mode: var(--blend); animation: aurora-drift 22s ease-in-out infinite alternate; }
+.aurora span:nth-child(1) { width: 38rem; height: 38rem; left: -10rem; top: -8rem; background: radial-gradient(circle at 30% 30%, #4F8CFF, transparent 70%); }
+.aurora span:nth-child(2) { width: 32rem; height: 32rem; right: -8rem; top: 8rem; background: radial-gradient(circle at 60% 40%, #7B61FF, transparent 70%); animation-delay: -7s; }
+.aurora span:nth-child(3) { width: 30rem; height: 30rem; left: 30%; bottom: -14rem; background: radial-gradient(circle, #00D4FF, transparent 70%); animation-delay: -13s; }
+@keyframes aurora-drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(4rem, 3rem, 0) scale(1.15); } }
+@media (prefers-reduced-motion: reduce) { .aurora span { animation: none; } }
+
+.progress { position: fixed; top: 0; left: 0; z-index: 30; width: 100%; height: 3px; transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--g1), var(--g2), #00A3CC); pointer-events: none; }
+
+.btn {
+  position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center;
+  padding: .7rem 1.7rem; border: 1px solid var(--glass-line); border-radius: 999px;
+  background: var(--glass); color: var(--fg); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font: inherit; font-weight: 700; font-size: .95rem; line-height: 1.2; text-decoration: none; cursor: pointer;
+  transform: translate(var(--mx, 0px), var(--my, 0px));
+  transition: transform .2s cubic-bezier(.34, 1.56, .64, 1), box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translate(var(--mx, 0px), calc(var(--my, 0px) - 2px)); border-color: var(--fg); text-decoration: none; }
+.btn-primary { border-color: transparent; color: #fff; background: linear-gradient(135deg, var(--g1), var(--g2)); box-shadow: 0 8px 24px -8px rgba(79, 140, 255, .7); }
+.btn-primary:hover { border-color: transparent; box-shadow: 0 12px 30px -8px rgba(91, 63, 224, .85); }
+.btn-ghost { border-color: transparent; background: transparent; color: var(--muted); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.btn-ghost:hover { color: var(--fg); background: var(--glass); }
+.hero__links { gap: .75rem; margin-top: 1.9rem; align-items: center; }
+.ripple-dot { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, .45); transform: scale(0); animation: ripple .6s ease-out forwards; pointer-events: none; }
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+.display__toggle { border-radius: 999px; border-width: 1px; border-color: var(--glass-line); background: var(--glass); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); padding: .4rem 1.2rem; font-weight: 700; }
+.display__panel { border-radius: 1.1rem; border-width: 1px; border-color: var(--glass-line); }
+.seg span { border-radius: 999px; border-width: 1px; }
+@media print { .aurora, .progress { display: none !important; } }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="wrap site-header">
   <a class="wordmark" href="#top">Huzaifa Asif</a>
@@ -362,10 +411,10 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
       <h1 id="name">Huzaifa Asif</h1>
       <p class="hero__lead">I'm a mobile developer with six years of shipping Android and Flutter apps. Today I work on Android infotainment at BMW Group and study artificial intelligence at FAU Erlangen-Nürnberg. My thesis work is about assistive vision models for people with visual impairments.</p>
       <ul class="hero__links">
-        <li><a href="https://github.com/huzaifa18">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn</a></li>
-        <li><a href="https://stackoverflow.com/users/6874315/huzaifa-asif">Stack Overflow</a></li>
-        <li><button class="linkbtn" type="button" id="print-cv">Save as PDF</button></li>
+        <li><a class="btn btn-primary" href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn</a></li>
+        <li><a class="btn" href="https://github.com/huzaifa18">GitHub</a></li>
+        <li><a class="btn" href="https://stackoverflow.com/users/6874315/huzaifa-asif">Stack Overflow</a></li>
+        <li><button class="btn btn-ghost" type="button" id="print-cv">Save as PDF</button></li>
       </ul>
     </div>
     <img class="portrait" src="https://avatars.githubusercontent.com/u/29542625?v=4&amp;s=480" width="232" height="290" alt="Portrait of Huzaifa Asif">
@@ -929,6 +978,52 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
       pic.style.removeProperty('--sy');
     });
   }
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  function reduced() {
+    return root.dataset.motion === 'reduce' || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+
+  var bar = document.getElementById('progress');
+  function progress() {
+    var h = root.scrollHeight - root.clientHeight;
+    bar.style.setProperty('--p', h > 0 ? Math.min(root.scrollTop / h, 1).toFixed(4) : 0);
+  }
+  window.addEventListener('scroll', progress, { passive: true });
+  progress();
+
+  var fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+  [].forEach.call(document.querySelectorAll('.btn, .display__toggle'), function (b) {
+    if (fine) {
+      b.addEventListener('pointermove', function (e) {
+        if (reduced()) return;
+        var r = b.getBoundingClientRect();
+        b.style.setProperty('--mx', ((e.clientX - r.left - r.width / 2) * 0.12).toFixed(1) + 'px');
+        b.style.setProperty('--my', ((e.clientY - r.top - r.height / 2) * 0.2).toFixed(1) + 'px');
+      });
+      b.addEventListener('pointerleave', function () {
+        b.style.removeProperty('--mx');
+        b.style.removeProperty('--my');
+      });
+    }
+    if (b.classList.contains('btn')) {
+      b.addEventListener('click', function (e) {
+        if (reduced()) return;
+        var r = b.getBoundingClientRect();
+        var d = Math.max(r.width, r.height);
+        var dot = document.createElement('span');
+        dot.className = 'ripple-dot';
+        dot.style.width = dot.style.height = d + 'px';
+        dot.style.left = (e.clientX - r.left - d / 2) + 'px';
+        dot.style.top = (e.clientY - r.top - d / 2) + 'px';
+        b.appendChild(dot);
+        setTimeout(function () { dot.remove(); }, 650);
+      });
+    }
+  });
 })();
 </script>
 </body>

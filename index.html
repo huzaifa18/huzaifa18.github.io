@@ -234,6 +234,7 @@ html.js .section:not(.in)::before { clip-path: inset(0 100% 0 0); }
 .rail li { flex: 0 0 11.5rem; scroll-snap-align: start; }
 .rail figure { margin: 0; }
 .rail img { display: block; width: 100%; aspect-ratio: 1 / 2; object-fit: cover; background: var(--panel); border: 2px solid var(--fg); transition: transform .3s ease, box-shadow .3s ease; }
+.rail .store img { aspect-ratio: 9 / 16; height: auto; background: var(--panel); }
 .rail figcaption { margin-top: .6rem; font-size: .95rem; line-height: 1.35; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .rail li:hover img { transform: translateY(-.4rem) rotate(-1.5deg); box-shadow: .5rem .5rem 0 var(--lane); }
@@ -678,8 +679,16 @@ body { overflow-x: clip; }
     <div class="section__inner">
       <h2 id="apps-h">Apps</h2>
       <div class="section__body">
-        <p class="section__note">Screens from my open-source apps. Client work stays private. Scroll sideways to see more.</p>
+        <p class="section__note">Public store screenshots of apps I helped build (QaboolHai, Arccos Golf), then screens from my own open-source apps. Scroll sideways to see more.</p>
         <ul class="rail" tabindex="0" aria-label="App screenshots">
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/UF7-o2PjtBDyx18eyUyj1fCAPmtgzpt0NLKeaqh9w1Bw7nbEHVc-zoTVc_oK8pcUi6zEHz0bRwQPYR4sFk3hCKI=w540" alt="QaboolHai screen on selfie verification for profiles" width="540" height="960"><figcaption><a href="https://play.google.com/store/apps/details?id=com.qaboolhai">QaboolHai, Flutter</a>, Selfie verification of every profile</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/29MKHyWZclGqeoYPONx4g-XobbCFfgq4qkYAboyVcpnmi76RvshOiUTcf1KIvlYisZVT_nDir8UDn1mALCNLaA=w540" alt="QaboolHai profile card with pass and send interest buttons" width="540" height="960"><figcaption>Choosing a partner, with the pass and send controls</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/AeHA1CjOsb9u3mTtSFeuylWamZ5-Z2uOeS1nIuGmv3U7GyLGFCvtdVXwCrYe5-u6FZZbOOrRFnlmBxfVFL-j=w540" alt="QaboolHai match screen showing two matched profiles" width="540" height="960"><figcaption>The match screen</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/jv3qtlnv4KHB0aKp2rcDWpdbQr4WATvvczXFV13Zapc-uUzDxP3VFaFbn7AAYDE_c3PftU7sClkUSbyla3LYe88=w540" alt="QaboolHai video call screen" width="540" height="960"><figcaption>In-app video calls with Agora</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/OqZey3TSP4vBhS_ygBVeaGNaR8nJ4tnFtXbg0lbHpOXbr2s2uCD9ojeLpaBNxboAMdzvA1hof_D-dQjf2VXccw=w540" alt="Arccos store graphic on tracking your game like the pros" width="540" height="960"><figcaption><a href="https://play.google.com/store/apps/details?id=com.arccosgolf.androidFlagship">Arccos Golf, Android</a>, Arccos, the official game tracker of the PGA TOUR</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/HgiPrWhbklgbYF3RHvqh9J2VDf1HfLjmlwvl1QpuQTs8iDNESgdsEpieZR_-DO3Dvq_EcrBJDwURO0gSaCRaGA=w540" alt="Arccos course search on a phone and a watch" width="540" height="960"><figcaption>Course search for over 40,000 courses</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/Rf9oDS2Q7LRij65oR8ctLZdESC2lID9eEzedI--8xL5SvnMEiu9pzf0kvtyRCzVewtMqaDQaZSJGifYQOZKD7Q=w540" alt="Arccos automatic shot tracking map on a phone" width="540" height="960"><figcaption>Automatic shot tracking on the course map</figcaption></figure></li>
+          <li class="store"><figure><img loading="lazy" src="https://play-lh.googleusercontent.com/dkVRIB2a6JnOegotv6yIb3wDjoS4shJYinLk74d6SiHmRIULhuI-vx-ZmRTHKZ_NAheRsDnRiu2R8JX649SenQ=w540" alt="Arccos AI-powered rangefinder on two phones" width="540" height="960"><figcaption>The AI-powered rangefinder</figcaption></figure></li>
           <li><figure><img loading="lazy" src="https://raw.githubusercontent.com/huzaifa18/Music_Player/master/app/src/main/res/drawable-v24/musicap1.jpg" alt="Music Player splash screen with a colourful note logo"><figcaption><a href="https://github.com/huzaifa18/Music_Player">Music_Player</a>, Kotlin</figcaption></figure></li>
           <li><figure><img loading="lazy" src="https://raw.githubusercontent.com/huzaifa18/Music_Player/master/app/src/main/res/drawable-v24/musicap3.jpg" alt="Music Player song list with playback controls"><figcaption>A browsable library of mp3, midi, wav and raw files</figcaption></figure></li>
           <li><figure><img loading="lazy" src="https://raw.githubusercontent.com/huzaifa18/Music_Player/master/app/src/main/res/drawable-v24/musicap4.jpg" alt="Music Player now-playing screen with a circular progress ring"><figcaption>Now playing, with equaliser bars</figcaption></figure></li>

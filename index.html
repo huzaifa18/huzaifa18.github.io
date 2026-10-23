@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huzaifa Asif, mobile developer</title>
+<meta name="description" content="Huzaifa Asif is a mobile developer with six years of Android and Flutter experience. He works on Android infotainment at BMW Group and studies artificial intelligence at FAU Erlangen-Nürnberg.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://huzaifa18.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Huzaifa Asif, mobile developer">
+<meta property="og:description" content="Android, Kotlin, Jetpack Compose and Flutter. Android infotainment at BMW Group. Master's student in AI at FAU.">
+<meta property="og:url" content="https://huzaifa18.github.io/">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/29542625?v=4&s=600">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311202D'/%3E%3Crect x='8' y='29' width='14' height='6' fill='%23F2B01E'/%3E%3Crect x='28' y='29' width='14' height='6' fill='%23F2B01E'/%3E%3Crect x='48' y='29' width='8' height='6' fill='%23F2B01E'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Huzaifa Asif",
+  "url": "https://huzaifa18.github.io/",
+  "jobTitle": "Mobile applications developer",
+  "image": "https://avatars.githubusercontent.com/u/29542625?v=4",
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "FAU Erlangen-Nürnberg" },
+  "sameAs": [
+    "https://github.com/huzaifa18",
+    "https://www.linkedin.com/in/huzaifa-asif-007/",
+    "https://stackoverflow.com/users/6874315/huzaifa-asif"
+  ]
+}
+</script>
+
+<script>
+/* Apply saved display settings before first paint to avoid a flash. */
+(function () {
+  var root = document.documentElement;
+  try {
+    var saved = JSON.parse(localStorage.getItem('hz-display') || 'null');
+    if (saved) {
+      if (saved.text) root.dataset.text = saved.text;
+      if (saved.contrast) root.dataset.contrast = saved.contrast;
+      if (saved.theme && saved.theme !== 'auto') root.dataset.theme = saved.theme;
+    }
+  } catch (e) {}
+})();
+</script>
+
+<style>
+:root {
+  --bg: #EDF1F3;
+  --panel: #FFFFFF;
+  --fg: #11202D;
+  --muted: #46576A;
+  --rule: #C3CFD8;
+  --accent: #1F3FC4;
+  --focus: #1F3FC4;
+  --lane: #F2B01E;
+  --text-scale: 1;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1620;
+    --panel: #13222F;
+    --fg: #E9EFF3;
+    --muted: #A3B3BF;
+    --rule: #26394A;
+    --accent: #8FADFF;
+    --focus: #F2B01E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1620;
+  --panel: #13222F;
+  --fg: #E9EFF3;
+  --muted: #A3B3BF;
+  --rule: #26394A;
+  --accent: #8FADFF;
+  --focus: #F2B01E;
+}
+:root[data-text="large"] { --text-scale: 1.15; }
+:root[data-text="xlarge"] { --text-scale: 1.3; }
+:root[data-contrast="high"] { --muted: var(--fg); --rule: var(--fg); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: calc(112.5% * var(--text-scale)); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1rem/1.65 "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+h1, h2, h3 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "Atkinson Hyperlegible", system-ui, sans-serif;
+  line-height: 1.1;
+}
+p { margin: 0 0 1em; }
+a { color: var(--accent); text-decoration-thickness: .08em; text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: .17em; }
+:root[data-contrast="high"] a { text-decoration-thickness: .14em; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+.wrap { width: min(100% - 2rem, 70rem); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus { left: 1rem; top: 1rem; z-index: 20; padding: .5rem 1rem; background: var(--fg); color: var(--bg); }
+
+/* Header */
+.site-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 1rem 2rem; padding-block: 1.25rem;
+}
+.wordmark { font: 800 1.3rem/1 "Bricolage Grotesque", sans-serif; color: var(--fg); text-decoration: none; }
+.site-header__right { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; }
+.nav ul { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin: 0; padding: 0; list-style: none; }
+.nav a { color: var(--fg); }
+
+/* Display control */
+.display { position: relative; }
+.display__toggle {
+  font: inherit; color: var(--fg); background: transparent; cursor: pointer;
+  border: 2px solid var(--fg); padding: .35rem .9rem;
+}
+.display__toggle:hover, .display__toggle[aria-expanded="true"] { background: var(--fg); color: var(--bg); }
+.display__panel {
+  position: absolute; right: 0; top: calc(100% + .6rem); z-index: 10;
+  width: min(23rem, calc(100vw - 2rem));
+  background: var(--panel); border: 2px solid var(--fg); padding: 1.1rem 1.25rem 1.25rem;
+}
+.display__panel[hidden] { display: none; }
+.display__panel fieldset { margin: 0 0 1rem; padding: 0; border: 0; }
+.display__panel legend { padding: 0; margin-bottom: .4rem; font-weight: 700; }
+.seg { display: flex; flex-wrap: wrap; gap: .4rem; }
+.seg label { position: relative; }
+.seg input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.seg span { display: block; padding: .3rem .75rem; border: 2px solid var(--rule); }
+.seg input:checked + span { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.seg input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.display__reset { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+
+/* Hero */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 2.5rem 4rem;
+  padding-block: clamp(2.5rem, 8vw, 6.5rem) clamp(3rem, 7vw, 5rem);
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 10.5vw, 8.6rem);
+  font-weight: 800; letter-spacing: -.035em; line-height: .95;
+  margin-bottom: 1.75rem;
+}
+.hero__lead { max-width: 36rem; font-size: 1.3rem; line-height: 1.5; }
+.hero__links { display: flex; flex-wrap: wrap; gap: .4rem 1.75rem; margin: 1.5rem 0 0; padding: 0; list-style: none; font-weight: 700; }
+.portrait {
+  display: block; width: clamp(9rem, 21vw, 14.5rem); aspect-ratio: 4 / 5; object-fit: cover;
+  box-shadow: .8rem .8rem 0 var(--lane);
+  margin: 0 .8rem .8rem 0;
+}
+
+/* Sections */
+.section { padding-bottom: clamp(3rem, 7vw, 5rem); }
+.section::before {
+  content: ""; display: block; height: 5px; margin-bottom: clamp(2rem, 5vw, 3.25rem);
+  background: repeating-linear-gradient(90deg, var(--lane) 0 2.25rem, transparent 2.25rem 3.75rem);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero + .section::before { animation: lane-draw 1.2s ease-out .2s both; }
+  @keyframes lane-draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+}
+.section__inner { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1.5rem 4rem; }
+.section h2 { align-self: start; font-size: 1.8rem; font-weight: 700; position: sticky; top: 1.5rem; }
+.section__body { max-width: 46rem; }
+.section__note { color: var(--muted); }
+
+.focus { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0 2rem; margin: 0; }
+.focus dt { font: 700 1.15rem/1.3 "Bricolage Grotesque", sans-serif; padding-top: 1.1rem; border-top: 1px solid var(--rule); }
+.focus dd { margin: 0; padding: 1.1rem 0 1.1rem; border-top: 1px solid var(--rule); }
+
+.timeline { margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.timeline li {
+  display: grid; grid-template-columns: minmax(0, 10rem) minmax(0, 1fr); gap: .25rem 2rem;
+  padding-block: 1.2rem; border-top: 1px solid var(--rule);
+}
+.when { color: var(--muted); }
+.timeline h3, .rows h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.25; }
+.where { margin: .1rem 0 .5rem; color: var(--muted); }
+.timeline p:last-child, .rows p:last-child { margin-bottom: 0; }
+
+.group-title { font-size: 1.15rem; font-weight: 700; margin: 2.5rem 0 .6rem; }
+.group-title:first-child { margin-top: 0; }
+.rows article {
+  display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: .25rem 2rem;
+  padding-block: 1.1rem; border-top: 1px solid var(--rule);
+}
+.tech { margin: .35rem 0 0; color: var(--muted); font-size: .95rem; }
+
+.facts { margin: 0; padding: 0; list-style: none; }
+.facts li { padding-block: 1rem; border-top: 1px solid var(--rule); }
+.facts strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.15rem; }
+
+blockquote { margin: 0 0 2rem; padding-left: 1.25rem; border-left: 5px solid var(--lane); max-width: 40rem; font-size: 1.2rem; line-height: 1.5; }
+blockquote p { margin-bottom: .5rem; }
+blockquote footer { font-size: 1rem; color: var(--muted); }
+
+.contact { margin: 0; padding: 0; list-style: none; }
+.contact a { display: inline-block; padding-block: .2rem; font: 700 clamp(1.7rem, 4.4vw, 2.7rem)/1.2 "Bricolage Grotesque", sans-serif; }
+
+.site-footer { padding-block: 1rem 3rem; color: var(--muted); font-size: .95rem; }
+
+/* Narrow screens */
+@media (max-width: 52rem) {
+  .hero { grid-template-columns: 1fr; }
+  .portrait { order: -1; width: 9rem; }
+  .section__inner { grid-template-columns: 1fr; gap: 1rem; }
+  .section h2 { position: static; }
+  .focus, .timeline li, .rows article { grid-template-columns: 1fr; }
+  .focus dt { border-bottom: 0; padding-bottom: 0; }
+  .focus dd { border-top: 0; padding-top: .25rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap site-header">
+  <a class="wordmark" href="#top">Huzaifa Asif</a>
+  <div class="site-header__right">
+    <nav class="nav" aria-label="Sections">
+      <ul>
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="display">
+      <button class="display__toggle" type="button" aria-expanded="false" aria-controls="display-panel">Display</button>
+      <div class="display__panel" id="display-panel" role="group" aria-label="Display settings" hidden>
+        <fieldset>
+          <legend>Text size</legend>
+          <div class="seg">
+            <label><input type="radio" name="text" value="default" checked><span>Default</span></label>
+            <label><input type="radio" name="text" value="large"><span>Large</span></label>
+            <label><input type="radio" name="text" value="xlarge"><span>Extra large</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Contrast</legend>
+          <div class="seg">
+            <label><input type="radio" name="contrast" value="standard" checked><span>Standard</span></label>
+            <label><input type="radio" name="contrast" value="high"><span>High</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Theme</legend>
+          <div class="seg">
+            <label><input type="radio" name="theme" value="auto" checked><span>Match device</span></label>
+            <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+            <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+          </div>
+        </fieldset>
+        <button class="display__reset" type="button" id="display-reset">Reset to defaults</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap hero" id="top" aria-labelledby="name">
+    <div>
+      <h1 id="name">Huzaifa Asif</h1>
+      <p class="hero__lead">I'm a mobile developer with six years of shipping Android and Flutter apps. Today I work on Android infotainment at BMW Group and study artificial intelligence at FAU Erlangen-Nürnberg. My thesis work is about assistive vision models for people with visual impairments.</p>
+      <ul class="hero__links">
+        <li><a href="https://github.com/huzaifa18">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn</a></li>
+        <li><a href="https://stackoverflow.com/users/6874315/huzaifa-asif">Stack Overflow</a></li>
+      </ul>
+    </div>
+    <img class="portrait" src="https://avatars.githubusercontent.com/u/29542625?v=4&amp;s=480" width="232" height="290" alt="Portrait of Huzaifa Asif">
+  </section>
+
+  <section class="wrap section" id="focus" aria-labelledby="focus-h">
+    <div class="section__inner">
+      <h2 id="focus-h">Focus</h2>
+      <div class="section__body">
+        <dl class="focus">
+          <dt>Android</dt>
+          <dd>Kotlin and Java, Jetpack Compose, Coroutines and MVVM. Phones, Android TV and, now, in-car infotainment.</dd>
+          <dt>Cross-platform</dt>
+          <dd>Flutter and Dart with GetX and BLoC, and Kotlin Multiplatform. Apps released on Google Play and the App Store.</dd>
+          <dt>AI on devices</dt>
+          <dd>TensorFlow Lite face recognition that runs on low-end phones, and vision models that help visually impaired people get around.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="experience" aria-labelledby="experience-h">
+    <div class="section__inner">
+      <h2 id="experience-h">Experience</h2>
+      <div class="section__body">
+        <ol class="timeline">
+          <li>
+            <div class="when">Oct 2025 to now</div>
+            <div>
+              <h3>Working student, development</h3>
+              <p class="where">BMW Group, Munich</p>
+              <p>Android infotainment system applications.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jun to Oct 2025</div>
+            <div>
+              <h3>Working student, development</h3>
+              <p class="where">Paradox Cat, Munich</p>
+              <p>Android applications for infotainment systems.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jul 2022 to Dec 2023, then Oct 2024 to Jan 2025</div>
+            <div>
+              <h3>Flutter developer</h3>
+              <p class="where">Code Builderz, remote</p>
+              <p>Launched QaboolHai on Google Play and the App Store. Built the payment gateway and a real-time chat module with GetX. In the part-time stint, focused on Kotlin Multiplatform and Jetpack Compose.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Feb 2021 to May 2022</div>
+            <div>
+              <h3>Android and Flutter developer</h3>
+              <p class="where">analytics (TenX), Lahore</p>
+              <p>Migrated the Arccos Golf Android app from Java to Kotlin, introduced Jetpack Compose and moved it from MVP to MVVM. Built Flutter apps for banking and insurance clients.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jan 2020 to Jan 2021</div>
+            <div>
+              <h3>Android and Flutter developer</h3>
+              <p class="where">Symtera Technologies, Lahore</p>
+              <p>Built an attendance system with on-device face recognition using TensorFlow Lite, QR check-in and Wi-Fi auto check-in, and a Flutter restaurant ordering app.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Aug 2019 to Jan 2020</div>
+            <div>
+              <h3>Android developer</h3>
+              <p class="where">Brain Telecommunication, Lahore</p>
+              <p>An Android TV streaming app, plus healthcare apps for booking appointments and tracking patients.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Apr to Aug 2019</div>
+            <div>
+              <h3>Android developer, contract</h3>
+              <p class="where">BracketSol, Lahore</p>
+              <p>A social app with WebSocket chat, low-latency video calls and live photo filters.</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jan 2017 to Apr 2019</div>
+            <div>
+              <h3>Android intern, then part-time developer</h3>
+              <p class="where">Ranglerz Digital Marketing, Lahore</p>
+              <p>Veterinary and healthcare apps, including Betaar and MediCall.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="section__note">Work for clients and at BMW is under NDA, so I describe the area I work in and not the projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="projects" aria-labelledby="projects-h">
+    <div class="section__inner">
+      <h2 id="projects-h">Projects</h2>
+      <div class="section__body rows">
+        <h3 class="group-title">Shipped products (client work, code is private)</h3>
+        <article>
+          <h3>QaboolHai</h3>
+          <div>
+            <p>A matchmaking app on Google Play and the App Store with matching, messaging, video calls and profile photo verification.</p>
+            <p class="tech">Flutter, Firebase, Agora</p>
+          </div>
+        </article>
+        <article>
+          <h3>Arccos Golf</h3>
+          <div>
+            <p>A golf analytics Android app. Migrated to Kotlin, adopted Jetpack Compose and re-architected to MVVM.</p>
+            <p class="tech">Kotlin, Jetpack Compose, Coroutines, Retrofit</p>
+          </div>
+        </article>
+        <article>
+          <h3>Parousia</h3>
+          <div>
+            <p>Contactless attendance with on-device face recognition, QR codes and Wi-Fi check-in.</p>
+            <p class="tech">Kotlin, TensorFlow Lite</p>
+          </div>
+        </article>
+        <article>
+          <h3>BTV</h3>
+          <div>
+            <p>An Android TV app with live channels, catch-up and gesture control of the player.</p>
+            <p class="tech">Android TV, Kotlin</p>
+          </div>
+        </article>
+        <article>
+          <h3>MediCall and BDoc</h3>
+          <div>
+            <p>Healthcare apps for looking up drugs and booking doctor appointments.</p>
+            <p class="tech">Java, Kotlin, Firebase</p>
+          </div>
+        </article>
+
+        <h3 class="group-title">Open source</h3>
+        <article>
+          <h3><a href="https://github.com/huzaifa18/Music_Player">Music_Player</a></h3>
+          <div>
+            <p>A fast, good-looking music player for mp3, midi, wav and raw files.</p>
+            <p class="tech">Kotlin</p>
+          </div>
+        </article>
+        <article>
+          <h3><a href="https://github.com/huzaifa18/SpeedTest">SpeedTest</a></h3>
+          <div>
+            <p>An internet speed test that uses Google Fiber's measurement.</p>
+            <p class="tech">Kotlin</p>
+          </div>
+        </article>
+        <article>
+          <h3><a href="https://github.com/huzaifa18/woo_flutter">woo_flutter</a></h3>
+          <div>
+            <p>A WooCommerce storefront app.</p>
+            <p class="tech">Flutter, Dart</p>
+          </div>
+        </article>
+        <article>
+          <h3><a href="https://github.com/huzaifa18/ParousiaRFID">ParousiaRFID</a></h3>
+          <div>
+            <p>An RFID-based attendance system for Android.</p>
+            <p class="tech">Kotlin</p>
+          </div>
+        </article>
+        <article>
+          <h3><a href="https://github.com/huzaifa18/VeterinaryAndPatient">VeterinaryAndPatient</a></h3>
+          <div>
+            <p>An app for managing veterinary patients.</p>
+            <p class="tech">Java</p>
+          </div>
+        </article>
+
+        <h3 class="group-title">University and research</h3>
+        <article>
+          <h3>SENSATION</h3>
+          <div>
+            <p>An Android navigation system that helps visually impaired pedestrians get around. A 10 ECTS university project.</p>
+            <p class="tech">Android, Kotlin</p>
+          </div>
+        </article>
+        <article>
+          <h3>Master's thesis</h3>
+          <div>
+            <p>Assistive vision models, how to evaluate their safety, and integrating them with ARCore.</p>
+            <p class="tech">Python, ARCore</p>
+          </div>
+        </article>
+        <article>
+          <h3>Wumpus Cave agent</h3>
+          <div>
+            <p>An intelligent agent for the classic Wumpus world, written for the AI-1 Systems Project.</p>
+            <p class="tech">Python</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="background" aria-labelledby="background-h">
+    <div class="section__inner">
+      <h2 id="background-h">Education</h2>
+      <div class="section__body">
+        <ul class="facts">
+          <li><strong>M.Sc. Artificial Intelligence</strong>FAU Erlangen-Nürnberg, October 2023 to now</li>
+          <li><strong>BSCS, Computer Science</strong>Imperial College of Business Studies, 2015 to 2019</li>
+          <li><strong>Winner, Obstacle Sensing Robot competition</strong>Arduino robot built with a team of three, SMEP GIKI chapter, 2018</li>
+          <li><strong>Blood bank coordinator</strong>Imperial Blood Bank, 2017 to 2019</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="words" aria-labelledby="words-h">
+    <div class="section__inner">
+      <h2 id="words-h">Colleagues</h2>
+      <div class="section__body">
+        <blockquote>
+          <p>One of the most versatile mobile developers that I have had the privilege to mentor.</p>
+          <footer>Syed Osama Farrukh Bokhari, Head of Software Development, TenX</footer>
+        </blockquote>
+        <blockquote>
+          <p>It's rare that you come across standout talent like Huzaifa.</p>
+          <footer>Yasir Ihsan, Technical Lead, Code Builderz</footer>
+        </blockquote>
+        <p class="section__note">From the recommendations on my <a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn profile</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="contact" aria-labelledby="contact-h">
+    <div class="section__inner">
+      <h2 id="contact-h">Contact</h2>
+      <div class="section__body">
+        <p>LinkedIn is the best way to reach me. My code is on GitHub.</p>
+        <ul class="contact">
+          <li><a href="https://www.linkedin.com/in/huzaifa-asif-007/">LinkedIn</a></li>
+          <li><a href="https://github.com/huzaifa18">GitHub</a></li>
+          <li><a href="https://stackoverflow.com/users/6874315/huzaifa-asif">Stack Overflow</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap site-footer">
+  <p>Based in Nuremberg, Germany. Last updated October 2026.</p>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var KEY = 'hz-display';
+  var defaults = { text: 'default', contrast: 'standard', theme: 'auto' };
+  var prefs = {};
+  var k;
+  for (k in defaults) prefs[k] = defaults[k];
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved) for (k in defaults) if (saved[k]) prefs[k] = saved[k];
+  } catch (e) {}
+
+  var toggle = document.querySelector('.display__toggle');
+  var panel = document.getElementById('display-panel');
+  var reset = document.getElementById('display-reset');
+
+  function apply() {
+    root.dataset.text = prefs.text;
+    root.dataset.contrast = prefs.contrast;
+    if (prefs.theme === 'auto') root.removeAttribute('data-theme');
+    else root.dataset.theme = prefs.theme;
+  }
+  function sync() {
+    for (var name in prefs) {
+      var input = panel.querySelector('input[name="' + name + '"][value="' + prefs[name] + '"]');
+      if (input) input.checked = true;
+    }
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (e) {}
+  }
+  function setOpen(open) {
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.hidden = !open;
+  }
+
+  apply();
+  sync();
+
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  panel.addEventListener('change', function (e) {
+    if (e.target && e.target.name in defaults) {
+      prefs[e.target.name] = e.target.value;
+      apply();
+      save();
+    }
+  });
+  reset.addEventListener('click', function () {
+    for (var key in defaults) prefs[key] = defaults[key];
+    apply();
+    sync();
+    save();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !panel.hidden) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', function (e) {
+    if (!panel.hidden && !panel.contains(e.target) && e.target !== toggle) setOpen(false);
+  });
+})();
+</script>
+</body>
+</html>

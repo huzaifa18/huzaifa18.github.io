@@ -214,8 +214,11 @@ blockquote footer { font-size: 1rem; color: var(--muted); }
 
 /* Narrow screens */
 @media (max-width: 52rem) {
-  .hero { grid-template-columns: 1fr; }
-  .portrait { order: -1; width: 9rem; }
+  .site-header__right { display: contents; }
+  .nav { order: 3; width: 100%; }
+  .display { margin-left: auto; }
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .portrait { width: 7.5rem; }
   .section__inner { grid-template-columns: 1fr; gap: 1rem; }
   .section h2 { position: static; }
   .focus, .timeline li, .rows article { grid-template-columns: 1fr; }
